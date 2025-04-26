@@ -81,6 +81,9 @@ router.post('/', upload.single('file'), async(req, res,next) => {
 // Get a single secondChanceItem by ID
 router.get('/:id', async (req, res, next) => {
     try {
+
+        const id = req.params.id;
+
         //Step 4: task 1 - Connect to MongoDB
         const db = await connectToDatabase();
 
@@ -105,6 +108,7 @@ router.get('/:id', async (req, res, next) => {
 // Update and existing item
 router.put('/:id', async(req, res,next) => {
     try {
+        const id = req.params.id;
         //Step 5: task 1 - Retrieve the dtabase connection from db.js and store the connection to a db constant
         const db = await connectToDatabase();
         //Step 5: Use the collection() method to retrieve the secondChanceItems collection
@@ -143,6 +147,7 @@ router.put('/:id', async(req, res,next) => {
 // Delete an existing item
 router.delete('/:id', async(req, res,next) => {
     try {
+        const id = req.params.id;
         //Step 6: task 1 - Retrieve the database connection from db.js and store the connection to the db constant
         const db = await connectToDatabase();
         //Step 6: task 2 - Use the collection() method to retrieve the secondChanceItem collection
